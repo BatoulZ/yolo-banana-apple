@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy app code (incl. models/best.pt and templates)
 COPY . .
 
+# Bake YOLOv5 repo into the image to avoid GitHub rate limits at runtime
+RUN git clone --depth 1 https://github.com/ultralytics/yolov5.git /app/yolov5
+
 # Ensure uploads dir exists at runtime
 RUN mkdir -p static/uploads
 

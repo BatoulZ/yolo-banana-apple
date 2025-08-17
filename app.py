@@ -30,12 +30,13 @@ if os.name == "nt":
 
 
 model = torch.hub.load(
-    'ultralytics/yolov5', 'custom',
+    '/app/yolov5',     # local path baked into the image
+    'custom',
     path=str(MODEL_PATH),
-    source='github',
-    trust_repo=True,
-    force_reload=True     # <— add this
+    source='local',
+    trust_repo=True
 )
+
 model.conf = 0.25
 model.iou = 0.45
 model.to('cpu')
