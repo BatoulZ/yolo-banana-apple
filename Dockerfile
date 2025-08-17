@@ -34,4 +34,5 @@ ENV YOLO_IOU=0.45
 EXPOSE 8000
 
 # Production server
-CMD ["gunicorn", "-w", "1", "-k", "gthread", "--threads", "4", "-b", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn","-w", "1", "-k", "gthread", "--threads", "4","--timeout", "180", "--graceful-timeout", "180","-b", "0.0.0.0:8000","app:app"]
+
