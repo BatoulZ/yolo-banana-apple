@@ -1,0 +1,18 @@
+# Python / venv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Editors
+.vscode/
+.idea/
+
+# App runtime
+static/uploads/*
+
+# OS
+.DS_Store
+Thumbs.db

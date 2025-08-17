@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Detections</title>
+    <style>
+      body { font-family: system-ui, Arial, sans-serif; margin: 24px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      img { max-width: 100%; border-radius: 12px; border: 1px solid #eee; }
+      a { text-decoration: none; color: #06c; }
+      .pill { display:inline-block; padding:6px 10px; border:1px solid #ddd; border-radius:999px; margin: 4px 6px 0 0;}
+    </style>
+  </head>
+  <body>
+    <p><a href="/">← Back</a></p>
+    <div class="grid">
+      <div>
+        <h2>Input</h2>
+        <img src="{{ input_image }}" alt="input"/>
+      </div>
+      <div>
+        <h2>Predictions</h2>
+        <img src="{{ output_image }}" alt="output"/>
+        <div style="margin-top:12px;">
+          {% if detections and detections|length %}
+            {% for d in detections %}
+              <span class="pill">{{ d.label }} ({{ d.conf }})</span>
+            {% endfor %}
+          {% else %}
+            <p>No detections over threshold.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
